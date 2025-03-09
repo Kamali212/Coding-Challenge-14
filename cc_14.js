@@ -37,12 +37,14 @@ function createSupportTicket(name, issue, priority) {
     ticketContainer.appendChild(customerCard);
 }
 
-
+// Test Case
 createSupportTicket('Pikachu', 'Cannot Edit Password', 'High');
 
 // Task 3: Converting NodeLists to Arrays for Bulk Updates
+// Select all high priority tickets 
 const highPriorityTickets = document.querySelectorAll('.high-priority');
 const ticketsArray = Array.from(highPriorityTickets);
+// Highlight all high priority tickets with white 
 ticketsArray.forEach(ticket => {
     ticket.style.backgroundColor = 'white';;
 });
