@@ -19,23 +19,28 @@ function createSupportTicket(name, issue, priority) {
     customerPriority.textContent = priority;
     customerCard.appendChild(customerPriority);
 
-    // Task 3
+    // Task 3 Highlight High priority tickets
 
     if (priority === 'High') {
         customerCard.classList.add('high-priority')
     }
 
     
-    // Remove button 
+    // Task 4: resolve button 
     const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', function() {
-    ticketContainer.removeChild(customerCard)
+    removeButton.textContent = 'Resolve';
+    
+    removeButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        ticketContainer.removeChild(customerCard)
     });
+   
     // Add button and ticket 
     customerCard.appendChild(removeButton);
     ticketContainer.appendChild(customerCard);
 }
+
+
 
 // Test Case
 createSupportTicket('Pikachu', 'Cannot Edit Password', 'High');
@@ -48,3 +53,8 @@ const ticketsArray = Array.from(highPriorityTickets);
 ticketsArray.forEach(ticket => {
     ticket.style.backgroundColor = 'white';;
 });
+
+// Task 4:  Implementing Ticket Resolution with Event Bubbling
+// When customer card is clicked it will log a message 
+ticketContainer.addEventListener('click', function()
+{console.log("Ticket Clicked")});
