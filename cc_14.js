@@ -18,6 +18,13 @@ function createSupportTicket(name, issue, priority) {
     const customerPriority = document.createElement('label');
     customerPriority.textContent = priority;
     customerCard.appendChild(customerPriority);
+
+    // Task 3
+
+    if (priority === 'High') {
+        customerCard.classList.add('high-priority')
+    }
+
     
     // Remove button 
     const removeButton = document.createElement('button');
@@ -27,10 +34,15 @@ function createSupportTicket(name, issue, priority) {
     });
     // Add button and ticket 
     customerCard.appendChild(removeButton);
-    ticketContainer.appendChild(customerCard)
+    ticketContainer.appendChild(customerCard);
 }
 
 
 createSupportTicket('Pikachu', 'Cannot Edit Password', 'High');
 
 // Task 3: Converting NodeLists to Arrays for Bulk Updates
+const highPriorityTickets = document.querySelectorAll('.high-priority');
+const ticketsArray = Array.from(highPriorityTickets);
+ticketsArray.forEach(ticket => {
+    ticket.style.backgroundColor = 'white';;
+});
